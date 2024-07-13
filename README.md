@@ -20,7 +20,28 @@ When you run ManifestBuilder.py, it will search for a preexisting manifest.json 
 - Parameters (optional): Opens a new menu. Here you can choose a parameter to edit, add a new one or deltete one. The parameters are passed to your entry function. The number of parameters must match the number of parameters your Entry Function takes. Each parameter needs a name, description and type (String, Integer, etc.)
 
 ## The Entry Script
-- The Entry Script is a python file that sits in the root directory of your module and contains the Entry Function that will be called to activate the module. The Entry Script can either return None, or a String. These will be considered a sucessfull execution of the module. If a string is returned, it will be passed back to the AI. If False is returned, the execution is considered to have failed. You can use these to give the AI extra context about what your module is doing.
+The Entry Script is a python file that sits in the root directory of your module and contains the Entry Function that will be called to activate the module. The Entry Script can either return None, or a String. These will be considered a sucessfull execution of the module. If a string is returned, it will be passed back to the AI. If False is returned, the execution is considered to have failed. You can use these to give the AI extra context about what your module is doing.
+
+## The Nova API
+The Nova API is a python file that sits in the root directory and allows you to control and monitor Nova from another program.
+
+## How to use the Nova API
+- Make sure your python scripts working directory is the same as the root directory of Nova.
+- Run
+```py
+Import NovaAPI
+```
+- You now have access to the following functions:
+```py
+NovaAPI.SetSetting(name, value) #Change a setting
+NovaAPI.GetSetting(name) #Get the value of a setting
+NovaAPI.SetKey(name, value) #Change an API key
+NovaAPI.GetKey(name) #Get the value of an API key
+NovaAPI.StartNova() #Run Nova in the background. There can only run one instance of Nova at once. Starting a new instance will stop the old one.
+NovaAPI.StopNova() #Stop the current instance of Nova
+NovaAPI.GetStatus() #Get the current status of Nova. 0 == Nova is turned off, 1 == Nova is turned on, 2 == Nova is currently starting
+```
+#### The capabilities of the API will be expanded with further updates.
 
 ## Security
 As a Module is, at its core, just Python code that gets executed by Nova, it allows bad actors to run harmful code on your machine that could damage your machine, steal your data or similar. To prevent this, certain Python libraries cannot be used in a module. These include os, sys, subprocess and keyring. When developing a module, do not use these libraries, as trying to import them in your code will result in your code being terminated by the Nova system and the user receiving a warning about the module. Keep in mind that this system is not perfect and bad actors can still find ways to execute harmful code on your machine using Nova Modules. This is why you should always double-check the source code of Modules before running them and just use Modules which you completely trust. Nova's security systems will be updated over time to improve security; however, the best way to protect yourself is to never trust a Module that you have not developed yourself or when you do not understand how it works.
