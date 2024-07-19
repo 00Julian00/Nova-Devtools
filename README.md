@@ -37,9 +37,16 @@ NovaAPI.SetSetting(name, value) #Change a setting
 NovaAPI.GetSetting(name) #Get the value of a setting
 NovaAPI.SetKey(name, value) #Change an API key
 NovaAPI.GetKey(name) #Get the value of an API key
-NovaAPI.StartNova() #Run Nova in the background. There can only run one instance of Nova at once. Starting a new instance will stop the old one.
+NovaAPI.StartNova(hotword) #Run Nova in the background. The parameter is aboolean that decides wether the hotword detection should run.
 NovaAPI.StopNova() #Stop the current instance of Nova
 NovaAPI.GetStatus() #Get the current status of Nova. 0 == Nova is turned off, 1 == Nova is turned on, 2 == Nova is currently starting
+NovaAPI.AddToConversation(role, content) #Add something to the conversation. Role is a string. Choose from "user", "assistant" and "system". Content is the actual message.
+NovaAPI.GetConversation() #Get the conversation history.
+NovaAPI.SetConversation() #Completly overwrite the conversation with your own
+NovaAPI.RunWithSpeech() #Prompt the language model to generate an answer and use the TTS to speak it.
+NovaAPI.Run() #Prompt the language model to generate an answer. The answer is returned to you and not spoken by the TTS.
+NovaAPI.ToggleHotwordDetection(OnOff) #The parameter is a boolean that will activate or deactivate the hotword detection
+NovaAPI.Speak(text) #Use the TTS directly to say out the string of text you enter.
 ```
 #### The capabilities of the API will be expanded with further updates.
 
