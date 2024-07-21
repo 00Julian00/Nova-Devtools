@@ -10,7 +10,7 @@ A Module is essentially code that can be executed by NOVA. Every Module needs a 
 Each module is its own folder, all located in 'Modules'. In the folder, there needs to be a [manifest.json](#the-manifest-builder) and the [Entry Script](#the-entry-script). Other then that, the structure of your module is open and you can design it however you want.
 
 ## The Manifest Builder
-When you run ManifestBuilder.py, it will search for a preexisting manifest.json file in the same directory. If it doesn't find one, it will create it. In the menu, you will be presented with a list of parameters that you have to fill out. Choose one by typing its number and press enter. Fill out the info and press enter again to return to the main menu.
+When you run ManifestBuilder.py, it will search for a preexisting manifest.json file in the same directory. If it doesn't find one, it will create it. In the menu, you will be presented with a list of functions. Choose one by typing its number and press enter.  Every function contains parameters that you have to fill out. Choose one by typing its number and press enter. Fill out the info and press enter again to return to the main menu.
 
 ## The Parameters in the Manifest
 - Module Name (required): The name of your module.
