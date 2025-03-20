@@ -1,6 +1,6 @@
 # NOVA Development Tools and Guides
 
-# ⚠️The project is no longer beeing maintained due to overwhelming tech-debt. The successor project is currently in development.
+# ⚠️The project is no longer beeing maintained due to overwhelming tech-debt. You can find the successor project [here](https://github.com/00Julian00/Nova2).
 
 ## Introduction
 The [Next-Generation Open-Source Virtual Assistant](https://github.com/00Julian00/Nova.git) (or NOVA) is an easily expandable and modifyable virtual assistant. It uses Modules to add functionality. This repository will help you with developing Modules by providing tools, templates and guides.
